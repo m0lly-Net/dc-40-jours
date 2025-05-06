@@ -4,53 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>40 jours</title>
+    <!-- Police cyberpunk Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Orbitron', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+            background-attachment: fixed;
         }
         .countdown-container {
             text-align: center;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: rgba(20, 20, 40, 0.95);
+            padding: 40px 50px;
+            border-radius: 18px;
+            box-shadow: 0 0 40px 10px #00fff7, 0 0 80px 0 #ff00cc inset;
+            border: 2px solid #00fff7;
+            position: relative;
         }
         h1 {
-            color: #333;
-            margin-bottom: 30px;
+            color: #ff00cc;
+            margin-bottom: 35px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #ff00cc, 0 0 20px #00fff7;
+            font-size: 2.2em;
         }
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 32px;
         }
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: 80px;
         }
         .countdown-value {
-            font-size: 48px;
+            font-size: 3.5em;
             font-weight: bold;
-            color: #2c3e50;
+            color: #00fff7;
+            text-shadow:
+                0 0 10px #00fff7,
+                0 0 20px #ff00cc,
+                0 0 40px #00fff7;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
         }
         .countdown-label {
-            font-size: 14px;
-            color: #7f8c8d;
+            font-size: 1em;
+            color: #ff00cc;
             text-transform: uppercase;
-            margin-top: 5px;
+            margin-top: 2px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 6px #ff00cc;
+        }
+        /* Ajout d'un effet de scanline */
+        .countdown-container::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(255,255,255,0.03) 0px,
+                rgba(255,255,255,0.03) 2px,
+                transparent 2px,
+                transparent 6px
+            );
+            border-radius: 18px;
         }
     </style>
 </head>
 <body>
     <div class="countdown-container">
-        <h1>Compte à rebours.</h1>
+        <h1>Timer retour [Helina]</h1>
         <div class="countdown">
             <div class="countdown-item">
                 <span id="days" class="countdown-value">00</span>
