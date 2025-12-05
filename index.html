@@ -7,16 +7,22 @@
     <!-- Police cyberpunk Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Orbitron', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 15px;
             background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
             background-attachment: fixed;
         }
+        
         .countdown-container {
             text-align: center;
             background: rgba(20, 20, 40, 0.95);
@@ -25,7 +31,10 @@
             box-shadow: 0 0 40px 10px #00fff7, 0 0 80px 0 #ff00cc inset;
             border: 2px solid #00fff7;
             position: relative;
+            width: 100%;
+            max-width: 650px;
         }
+        
         h1 {
             color: #ff00cc;
             margin-bottom: 35px;
@@ -33,17 +42,21 @@
             text-shadow: 0 0 10px #ff00cc, 0 0 20px #00fff7;
             font-size: 2.2em;
         }
+        
         .countdown {
             display: flex;
             justify-content: center;
             gap: 32px;
+            flex-wrap: wrap;
         }
+        
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             min-width: 80px;
         }
+        
         .countdown-value {
             font-size: 3.5em;
             font-weight: bold;
@@ -55,6 +68,7 @@
             margin-bottom: 8px;
             letter-spacing: 2px;
         }
+        
         .countdown-label {
             font-size: 1em;
             color: #ff00cc;
@@ -63,7 +77,8 @@
             letter-spacing: 1px;
             text-shadow: 0 0 6px #ff00cc;
         }
-        /* Ajout d'un effet de scanline */
+        
+        /* Effet de scanline */
         .countdown-container::after {
             content: '';
             position: absolute;
@@ -78,11 +93,103 @@
             );
             border-radius: 18px;
         }
+        
+        /* RESPONSIVE - Tablettes */
+        @media (max-width: 768px) {
+            .countdown-container {
+                padding: 30px 35px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            
+            .countdown {
+                gap: 24px;
+            }
+            
+            .countdown-value {
+                font-size: 2.8em;
+            }
+            
+            .countdown-label {
+                font-size: 0.9em;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+            }
+        }
+        
+        /* RESPONSIVE - Mobiles */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .countdown-container {
+                padding: 25px 20px;
+                border-radius: 12px;
+            }
+            
+            h1 {
+                font-size: 1.4em;
+                margin-bottom: 20px;
+                letter-spacing: 1px;
+            }
+            
+            .countdown {
+                gap: 16px;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+            }
+            
+            .countdown-value {
+                font-size: 2.2em;
+                margin-bottom: 5px;
+            }
+            
+            .countdown-label {
+                font-size: 0.75em;
+                letter-spacing: 0.5px;
+            }
+        }
+        
+        /* RESPONSIVE - Très petits écrans */
+        @media (max-width: 360px) {
+            .countdown-container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+            
+            .countdown {
+                gap: 12px;
+            }
+            
+            .countdown-item {
+                min-width: 50px;
+            }
+            
+            .countdown-value {
+                font-size: 1.8em;
+            }
+            
+            .countdown-label {
+                font-size: 0.65em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="countdown-container">
-        <h1>Timer retour [Helina]</h1>
+        <h1>🐱 Timer Asalia 🐱</h1>
         <div class="countdown">
             <div class="countdown-item">
                 <span id="days" class="countdown-value">00</span>
@@ -104,8 +211,8 @@
     </div>
 
     <script>
-// Date de fin fixe (à modifier selon ton besoin)  
-const targetDate = new Date('2025-06-24T21:00:00');
+        // Date de fin fixe (à modifier selon ton besoin)  
+        const targetDate = new Date('2026-02-02T21:00:00');
         
         function updateCountdown() {
             const currentDate = new Date();
